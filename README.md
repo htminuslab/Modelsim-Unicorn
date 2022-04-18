@@ -2,9 +2,8 @@
 
 Demo Modelsim/Questa QEMU Unicorn integration via the VHDL FLI
 
-![Unicorn](https://github.com/htminuslab/Modelsim-Unicorn/blob/main/unicorn.png?raw=true) ![Unicorn](https://github.com/htminuslab/Modelsim-Unicorn/blob/main/modeltech.png?raw=true) 
- 
-<img src="unicorn.png" alt="Unicorn logo"/>  <img src="modeltech.png" alt="Old Modelsim logo"/>  
+
+<img src="unicorn.png" alt="Unicorn logo"/>  <img src="modeltech.PNG" alt="Old Modelsim logo"/>  
 
  
 This repository shows how to integrate the [Unicorn Emulator](https://github.com/unicorn-engine/unicorn) to Modelsim/Questa via the VHDL FLI interface. The demo runs under Windows, an additional disassembler is included which was developed by [Michael Clark](https://github.com/michaeljclark/riscv-disassembler)
