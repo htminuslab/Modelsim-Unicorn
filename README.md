@@ -1,13 +1,15 @@
 # Modelsim-Unicorn
 
-Demo Modelsim/Questa QEMU Unicorn integration via the VHDL FLI
+Demo Modelsim/Questa QEMU Unicorn integration via the VHDL Foreign Language Interface (FLI)
 
 
-<img src="unicorn.png" alt="Unicorn logo"/>  <img src="modeltech.PNG" alt="Old Modelsim logo"/>  
+<img src="unicorn.png" alt="Unicorn logo"/>   +   <img src="modeltech.PNG" alt="Old Modelsim logo"/>  
 
  
 This repository shows how to integrate the [Unicorn Emulator](https://github.com/unicorn-engine/unicorn) to Modelsim/Questa via the VHDL FLI interface. The demo runs under Windows, an additional disassembler is included which was developed by [Michael Clark](https://github.com/michaeljclark/riscv-disassembler)
 To simplify the (initial) test pre-build unicorn and FLI DLL files are supplied but I would strongly recommend not at least from a security point of view that you build your own DLL files. 
+ 
+Note **Verilog** users can simply put a Verilog wrapper around the VHDL core, this is easily done as no complex types are used and most simulators nowadays are dual language. 
  
 Unicorn is an excellent multiprocessor CPU emulator based on QEMU, it supports a wide range of processors such as ARM, ARM64, M68K, MIPS, PowerPC, SPARC, S390X, X86 and the for this demo used 32bits RISC-V. The emulator was developed by Nguyen Anh Quynh and Dang Hoang Vu from the university of Illinois. Further information can be found at http://www.unicorn-engine.org
  
@@ -64,7 +66,7 @@ entity riscv is
 end riscv; 
 ``` 
  
-For program storage the fli_riscv.c file mallocs 2Mbyte using **mti_Malloc()**, the standard malloc() function can also be used but the user is then responsible for storing and retrieving the memory when a checkpoint and restore is used (Questa only). The allocated memory needs to be released when the simulations ends. The FLI has 2 functions that can be used for this, the first one is **mti_AddQuitCB()** which is called when the user ends Modelsim/Questa and **mti_AddRestartCB()** which is called during a restart. The fli_riscv.c file calls both functions to free the memory, this is reported in the transcript window as "cleaning up....".
+For program storage the fli_riscv.c file mallocs 2Mbyte using **mti_Malloc()**, the standard malloc() function can also be used but the user is then responsible for storing and retrieving the memory when a checkpoint and restore is used (Questa only). The allocated memory needs to be released when the simulations ends. The FLI has 2 functions that can be used for this, the first one is **mti_AddQuitCB()** which is called when the user ends the simulation (quit -sim) or exits Modelsim/Questa and **mti_AddRestartCB()** which is called during a restart. The fli_riscv.c file calls both functions to free the memory, this is reported in the transcript window as "cleaning up....".
  
 Note that the fli_riscv.dll file load unicorn.dll so this need to be either in the Modelsim/Questa root directory or in the search path.
 
@@ -259,3 +261,6 @@ Reading pref.tcl
 ## License
 
 As per the Unicorn project this project is also licenses under GPL - see the LICENSE file for details
+
+## Notice
+ModelSim®, Questa, QuestaSim and their respective logos are trademarks or registered trademarks of Siemens Industry Software Limited.
