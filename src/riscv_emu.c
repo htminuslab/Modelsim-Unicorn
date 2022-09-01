@@ -128,7 +128,7 @@ static void hook_mem(uc_engine *uc, uc_mem_type type, uint64_t address, int size
 			wrn=true;			
 			break;
 		case UC_MEM_WRITE:
-			if (enable_display_rw) mti_PrintFormatted("WRITE: 0x%"PRIx64 ", value = 0x%"PRIx64 "\n",	address, value);			
+			if (enable_display_rw) mti_PrintFormatted("WRITE: 0x%"PRIx64 ", size = %u, value = 0x%"PRIx64 "\n",	address, size,value);			
 			rdn=true;
 			wrn=false;
 			break;
@@ -144,7 +144,7 @@ static void hook_mem(uc_engine *uc, uc_mem_type type, uint64_t address, int size
 static void hook_intr(uc_engine *uc, uint32_t intno, void *user_data)
 {
 	mti_PrintFormatted("\n\n*** hook_intr called intno=%x****\n\n",intno);
-	mti_Quit();
+	//mti_Quit();
 }
 
 int init_unicorn(uc_engine *uc, char * binfilename)
@@ -166,7 +166,7 @@ int init_unicorn(uc_engine *uc, char * binfilename)
 	//---------------------------------------------------------------------------------------------
 	// Open bin file and load into unicorn memory, also write to MTI memory? 
 	//---------------------------------------------------------------------------------------------
-    if ((fp=fopen(binfilename,"rt"))!=NULL) {
+    if ((fp=fopen(binfilename,"rb"))!=NULL) {
 		mti_PrintFormatted("Reading rom file %s, ",binfilename);// Start IP address
 		while (fread(&byte,sizeof(byte),1,fp)) {
 			uc_mem_write(uc, addr++, &byte, sizeof(byte));
