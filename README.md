@@ -6,8 +6,8 @@ Demo Modelsim/Questa QEMU Unicorn integration via the VHDL Foreign Language Inte
 <img src="unicorn.png" alt="Unicorn logo"/>   +   <img src="modeltech.PNG" alt="Old Modelsim logo"/>  
 
  
-This repository shows how to integrate the [Unicorn Emulator](https://github.com/unicorn-engine/unicorn) to Modelsim/Questa via the VHDL FLI interface. The demo runs under Windows, an additional disassembler is included which was developed by [Michael Clark](https://github.com/michaeljclark/riscv-disassembler)
-To simplify the (initial) test pre-build unicorn and FLI DLL files are supplied but I would strongly recommend not at least from a security point of view that you build your own DLL files. 
+This repository shows how to integrate the [Unicorn Emulator](https://github.com/unicorn-engine/unicorn) to Modelsim/Questa via the VHDL FLI interface. The demo runs under Windows, an additional disassembler is included which was developed by [Michael Clark](https://github.com/michaeljclark/riscv-disassembler).
+To simplify the (initial) test pre-build unicorn and FLI DLL files are supplied but I would strongly recommend from a security point of view that you build your own DLL files. For the Unicorn DLL I used msys and mingw64. 
  
 Note **Verilog** users can simply put a Verilog wrapper around the VHDL core, this is easily done as no complex types are used and most simulators nowadays are dual language. 
  

@@ -155,10 +155,11 @@ int init_unicorn(uc_engine *uc, char * binfilename)
 	uint32_t addr=START_ADDRESS;
 	uint8_t byte;
 		
-    static uc_hook trace2, trace3;
-
-
-    mti_PrintFormatted("Init Unicorn RISCV32 Emulator\n");
+    static uc_hook trace2, trace3;	
+	unsigned int major,minor;
+	
+	uc_version(&major,&minor);									// Get Unicorn Version
+    mti_PrintFormatted("Init Unicorn RISCV32 Emulator version %d.%d\n",major,minor);
 
 	
 	uc_mem_map(uc, 0, 2 * 1024 * 1024, UC_PROT_ALL);			// map 2MB memory for this emulation
