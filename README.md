@@ -3,6 +3,9 @@
 Demo Modelsim/Questa QEMU Unicorn integration via the VHDL Foreign Language Interface (FLI)
 
 
+<span style="color: red; font-weight: bold;">Update 05-10-2025: The code no longer works with the latest Unicorn files, it crashed both Modelsim and Questa. I have not been able to identify the issue.</span>
+
+
 <img src="unicorn.png" alt="Unicorn logo"/>   +   <img src="modeltech.PNG" alt="Old Modelsim logo"/>  
 
  
