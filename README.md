@@ -4,8 +4,10 @@ Demo Modelsim/Questa QEMU Unicorn integration via the VHDL Foreign Language Inte
 
 
 <span style="color: red; font-weight: bold;">
-Update 05-10-2025: The code no longer works with the latest Unicorn files, it crashed both Modelsim and Questa. I have not been able to identify the issue.
-</span>
+Update 05-10-2025: This code no longer works with the latest Unicorn files, unfortunately it crashed both Modelsim and Questa and I have not been able to identify the issue.</span> 
+
+However, I have created a new implementation that avoid most of the integration issues, see this [Questa QEMU co-simulation link](https://github.com/htminuslab/Questa_QEMU).
+
 
 
 <img src="unicorn.png" alt="Unicorn logo"/>   +   <img src="modeltech.PNG" alt="Old Modelsim logo"/>  
